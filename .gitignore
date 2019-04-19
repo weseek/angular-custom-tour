@@ -5,11 +5,11 @@ npm-debug.log
 
 dist/
 
-*.js
-!config/**/*.js
-!docs/**/*.js
-*.d.ts
-*.js.map
-!docs/**/*.js.map
+# *.js
+# !config/**/*.js
+# !docs/**/*.js
+# *.d.ts
+# *.js.map
+# !docs/**/*.js.map
 
 *.metadata.json
