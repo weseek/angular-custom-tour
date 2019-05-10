@@ -111,18 +111,18 @@ export class TourComponent implements OnInit {
   }
 
   exit(): void {
-    this.exitClickHander.emit();
+    this.exitEventEmitter.emit();
     this.hintService.end();
   }
 
   next(): void {
-    this.nextClickHander.emit();
+    this.nextEventEmitter.emit();
     this.hideStep();
     this.hintService.showNext();
   }
 
   prev(): void {
-    this.prevClickHander.emit();
+    this.prevEventEmitter.emit();
     this.hideStep();
     this.hintService.showPrev();
   }
