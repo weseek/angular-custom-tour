@@ -22,9 +22,9 @@ export class TourComponent implements OnInit {
   @Input() position: string;
   @Input() customCss: string;
 
-  @Output() nextClickHander: EventEmitter<any> = new EventEmitter();
-  @Output() prevClickHander: EventEmitter<any> = new EventEmitter();
-  @Output() exitClickHander: EventEmitter<any> = new EventEmitter();
+  @Output() nextEventEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() prevEventEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() exitEventEmitter: EventEmitter<any> = new EventEmitter();
 
   showme: boolean;
   hasNext: boolean;

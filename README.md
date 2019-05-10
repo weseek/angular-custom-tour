@@ -66,7 +66,7 @@ Initialize it in your page component
   <!-- Each step could be placed at ANYWHERE -->
   <div class="i-want-highlight-this" id="highlight-me"> WOW!</div>
 
-  <tour-step selector="highlight-me" order="3" position="right" title="title string" (nextClickHander)="nextClickHander()" (prevClickHander)="prevClickHander()" (exitClickHander)="exitClickHander()">
+  <tour-step selector="highlight-me" order="3" position="right" title="title string" (nextEventEmitter)="onNext()" (prevEventEmitter)="onPrev()" (exitEventEmitter)="onExit()">
     <!-- ANY HTML HERE
       NOTE: ONLY selector attribute is required! others is up to you
     -->
