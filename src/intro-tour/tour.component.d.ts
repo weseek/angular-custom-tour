@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { OnInit, EventEmitter } from '@angular/core';
 import { HintService } from '../hint.service';
 export declare class TourComponent implements OnInit {
     hintService: HintService;
@@ -7,6 +7,9 @@ export declare class TourComponent implements OnInit {
     order: number;
     position: string;
     customCss: string;
+    nextEventEmitter: EventEmitter<any>;
+    prevEventEmitter: EventEmitter<any>;
+    exitEventEmitter: EventEmitter<any>;
     showme: boolean;
     hasNext: boolean;
     hasPrev: boolean;

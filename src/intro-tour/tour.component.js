@@ -15,6 +15,9 @@ var variables_1 = require("../variables");
 var TourComponent = /** @class */ (function () {
     function TourComponent(hintService) {
         this.hintService = hintService;
+        this.nextEventEmitter = new core_1.EventEmitter();
+        this.prevEventEmitter = new core_1.EventEmitter();
+        this.exitEventEmitter = new core_1.EventEmitter();
     }
     TourComponent.prototype.ngOnInit = function () {
         this.hintService.register(this.selector, this);
@@ -80,13 +83,16 @@ var TourComponent = /** @class */ (function () {
         this.showme = false;
     };
     TourComponent.prototype.exit = function () {
+        this.exitEventEmitter.emit();
         this.hintService.end();
     };
     TourComponent.prototype.next = function () {
+        this.nextEventEmitter.emit();
         this.hideStep();
         this.hintService.showNext();
     };
     TourComponent.prototype.prev = function () {
+        this.prevEventEmitter.emit();
         this.hideStep();
         this.hintService.showPrev();
     };
@@ -116,6 +122,18 @@ var TourComponent = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", String)
     ], TourComponent.prototype, "customCss", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], TourComponent.prototype, "nextEventEmitter", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], TourComponent.prototype, "prevEventEmitter", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], TourComponent.prototype, "exitEventEmitter", void 0);
     TourComponent = __decorate([
         core_1.Component({
             selector: variables_1.HintConfig.HINT_TAG,
