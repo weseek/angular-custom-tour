@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { HintService } from '../hint.service';
 import { HintConfig } from '../variables';
 
@@ -21,7 +21,11 @@ export class TourComponent implements OnInit {
   @Input() order: number;
   @Input() position: string;
   @Input() customCss: string;
-  
+
+  @Output() nextEventEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() prevEventEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() exitEventEmitter: EventEmitter<any> = new EventEmitter();
+
   showme: boolean;
   hasNext: boolean;
   hasPrev: boolean;
@@ -107,15 +111,18 @@ export class TourComponent implements OnInit {
   }
 
   exit(): void {
+    this.exitEventEmitter.emit();
     this.hintService.end();
   }
 
   next(): void {
+    this.nextEventEmitter.emit();
     this.hideStep();
     this.hintService.showNext();
   }
 
   prev(): void {
+    this.prevEventEmitter.emit();
     this.hideStep();
     this.hintService.showPrev();
   }
