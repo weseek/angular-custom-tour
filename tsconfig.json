@@ -3,7 +3,7 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "moduleResolution": "node",
-        "target": "es5",
+        "target": "es2015",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": true,

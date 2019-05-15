@@ -24,13 +24,18 @@ export class HintService {
    * Initialize hint service
    * @method initialize
    * @param  {HintOptions} options init options
+   * @param  {number} startOrder start order
    * @return void
    */
-  public initialize(options: HintOptions = new HintOptions()): void {
+  public initialize(options: HintOptions = new HintOptions(), startOrder: number = null): void {
     this.hintOptions = (<any>Object).assign(new HintOptions(), options);
     let nodes = document.getElementsByTagName(this.hintOptions.stepTag);
     this.steps = this.initSteps(nodes);
-    this.startAt(0);
+    let startStepIndex: number = this.steps.findIndex((step: Step) => step.order === startOrder);
+    if (startStepIndex === -1) {
+      startStepIndex = 0;
+    }
+    this.startAt(startStepIndex);
     this.overlay$.next(true);
   }
   /**
