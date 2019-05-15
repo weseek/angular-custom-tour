@@ -27,7 +27,10 @@ export class HintService {
    * @param  {number} startOrder start order
    * @return void
    */
-  public initialize(options: HintOptions = new HintOptions(), startOrder: number = null): void {
+  public initialize(options: HintOptions = null, startOrder: number = null): void {
+    if (options == null) {
+      options = new HintOptions();
+    }
     this.hintOptions = (<any>Object).assign(new HintOptions(), options);
     let nodes = document.getElementsByTagName(this.hintOptions.stepTag);
     this.steps = this.initSteps(nodes);
