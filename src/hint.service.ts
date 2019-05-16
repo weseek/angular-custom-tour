@@ -35,7 +35,7 @@ export class HintService {
     let nodes = document.getElementsByTagName(this.hintOptions.stepTag);
     this.steps = this.initSteps(nodes);
     let startStepIndex: number = this.steps.findIndex((step: Step) => step.order === startOrder);
-    if (startStepIndex === -1) {
+    if (startStepIndex < 0) {
       startStepIndex = 0;
     }
     this.startAt(startStepIndex);

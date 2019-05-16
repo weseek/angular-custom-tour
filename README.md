@@ -123,9 +123,9 @@ This module in active development mode, if you have any suggestions feel free to
 
 # Set start order
 ```typescript
-  startTour() {
-    this.hintService.initialize(null, 3); // set order number second argument 
-  }
+startTour() {
+  this.hintService.initialize(null, 3); // set order number as the second argument
+}
 ```
 
 Set null to first argument if don't use HintOptions
