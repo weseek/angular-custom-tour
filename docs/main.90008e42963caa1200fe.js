@@ -20302,14 +20302,25 @@ var HintService = /** @class */ (function () {
      * Initialize hint service
      * @method initialize
      * @param  {HintOptions} options init options
+     * @param  {number} startOrder start order
      * @return void
      */
-    HintService.prototype.initialize = function (options) {
-        if (options === void 0) { options = new options_1.HintOptions(); }
-        this.hintOptions = Object.assign(new options_1.HintOptions(), options);
+    HintService.prototype.initialize = function (options, startOrder) {
+        this.hintOptions = Object.assign(new options_1.HintOptions(), options || new options_1.HintOptions());
         var nodes = document.getElementsByTagName(this.hintOptions.stepTag);
         this.steps = this.initSteps(nodes);
-        this.startAt(0);
+        var startStepIndex;
+        // Find same order on startOrder and Steps
+        this.steps.some(function (step, index) {
+            if (step.order === startOrder) {
+                startStepIndex = index;
+                return true;
+            }
+        });
+        if (startStepIndex == null) {
+            startStepIndex = 0;
+        }
+        this.startAt(startStepIndex);
         this.overlay$.next(true);
     };
     /**
@@ -55330,4 +55341,4 @@ exports.HintOptions = HintOptions;
 
 /***/ })
 ],[138]);
-//# sourceMappingURL=main.7b2d6b962ffd75b0fe09.js.map
+//# sourceMappingURL=main.90008e42963caa1200fe.js.map

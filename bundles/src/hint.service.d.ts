@@ -20,9 +20,10 @@ export declare class HintService {
      * Initialize hint service
      * @method initialize
      * @param  {HintOptions} options init options
+     * @param  {number} startOrder start order
      * @return void
      */
-    initialize(options?: HintOptions): void;
+    initialize(options?: HintOptions, startOrder?: number): void;
     /**
      * Show step
      * @method show
