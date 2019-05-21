@@ -31,8 +31,15 @@ export class HintService {
     this.hintOptions = (<any>Object).assign(new HintOptions(), options || new HintOptions());
     let nodes = document.getElementsByTagName(this.hintOptions.stepTag);
     this.steps = this.initSteps(nodes);
-    let startStepIndex: number = this.steps.findIndex((step: Step) => step.order === startOrder);
-    if (startStepIndex < 0) {
+    let startStepIndex: number;
+    // Find same order on startOrder and Steps
+    this.steps.some((step: Step, index: number) => {
+      if (step.order === startOrder) {
+        startStepIndex = index;
+        return true;
+      }
+    });
+    if (startStepIndex == null) {
       startStepIndex = 0;
     }
     this.startAt(startStepIndex);
