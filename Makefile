@@ -15,8 +15,10 @@ formatCheck:
 build:
 	npm run build
 
-publish:
+prepublish:
 	npm run ngc
-	tsc -d
+	node_modules/.bin/tsc -d
 	npm run umd
+
+publish:
 	npm publish --registry http://registry.npmjs.org
