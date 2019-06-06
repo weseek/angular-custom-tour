@@ -12,4 +12,4 @@ dist/
 # *.js.map
 # !docs/**/*.js.map
 
-*.metadata.json
+# *.metadata.json
