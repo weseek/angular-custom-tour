@@ -26,6 +26,22 @@ export class TourComponent implements OnInit {
   @Output() prevEventEmitter: EventEmitter<any> = new EventEmitter();
   @Output() exitEventEmitter: EventEmitter<any> = new EventEmitter();
 
+  /**
+   * Emit the event of TourComponent on show.
+   *
+   * @type {EventEmitter<any>}
+   * @memberof TourComponent
+   */
+  @Output() onShow: EventEmitter<any> = new EventEmitter();
+
+  /**
+   * Emit the event of TourComponent on hide.
+   *
+   * @type {EventEmitter<any>}
+   * @memberof TourComponent
+   */
+  @Output() onHide: EventEmitter<any> = new EventEmitter();
+
   showme: boolean;
   hasNext: boolean;
   hasPrev: boolean;
@@ -93,6 +109,7 @@ export class TourComponent implements OnInit {
     }
 
     this.showme = true;
+    this.onShow.emit();
     this.hasNext = this.hintService.hasNext();
     this.hasPrev = this.hintService.hasPrev();
 
@@ -108,6 +125,7 @@ export class TourComponent implements OnInit {
     }
 
     this.showme = false;
+    this.onHide.emit();
   }
 
   exit(): void {
