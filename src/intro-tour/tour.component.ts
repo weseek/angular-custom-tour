@@ -26,7 +26,20 @@ export class TourComponent implements OnInit {
   @Output() prevEventEmitter: EventEmitter<any> = new EventEmitter();
   @Output() exitEventEmitter: EventEmitter<any> = new EventEmitter();
 
+  /**
+   * Emit the event of TourComponent on show.
+   *
+   * @type {EventEmitter<any>}
+   * @memberof TourComponent
+   */
   @Output() onShow: EventEmitter<any> = new EventEmitter();
+
+  /**
+   * Emit the event of TourComponent on hide.
+   *
+   * @type {EventEmitter<any>}
+   * @memberof TourComponent
+   */
   @Output() onHide: EventEmitter<any> = new EventEmitter();
 
   showme: boolean;
