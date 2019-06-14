@@ -21,4 +21,4 @@ prepublish:
 	npm run umd
 
 publish:
-	npm publish --registry http://registry.npmjs.org
+	npm publish --registry http://registry.npmjs.org --access public

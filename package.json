@@ -1,11 +1,11 @@
 {
-  "name": "angular-custom-tour",
+  "name": "@weseek/angular-custom-tour",
   "description": "Easy to customize Angular 2+ tour",
   "repository": {
     "type": "git",
     "url": "https://github.com/miraxes/angular-custom-tour"
   },
-  "version": "0.0.18",
+  "version": "0.0.21",
   "license": "MIT",
   "main": "bundles/angular-custom-tour.umd.min.js",
   "module": "index.js",
