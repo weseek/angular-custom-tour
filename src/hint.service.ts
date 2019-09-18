@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { TourComponent } from './intro-tour/tour.component';
 import { HintOptions } from './options';
 import { HintConfig } from './variables';
@@ -149,10 +149,10 @@ export class HintService {
   /**
    * Convert Element[] to Step[]
    * @method initSteps
-   * @param  {NodeListOf<Element>} nodes
+   * @param  {HTMLCollectionOf<Element>} nodes
    * @return {Step[]}
    */
-  private initSteps(nodes: NodeListOf<Element>): Step[] {
+  private initSteps(nodes: HTMLCollectionOf<Element>): Step[] {
     let steps = [];
     for (let i = 0; i < nodes.length; i++) {
         steps.push({
