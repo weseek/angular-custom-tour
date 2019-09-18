@@ -149,10 +149,10 @@ export class HintService {
   /**
    * Convert Element[] to Step[]
    * @method initSteps
-   * @param  {HTMLCollectionOf<Element>} nodes
+   * @param  {NodeListOf<Element>} nodes
    * @return {Step[]}
    */
-  private initSteps(nodes: HTMLCollectionOf<Element>): Step[] {
+  private initSteps(nodes: NodeListOf<Element>): Step[] {
     let steps = [];
     for (let i = 0; i < nodes.length; i++) {
         steps.push({
